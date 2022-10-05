@@ -1,5 +1,5 @@
 import "./App.css";
-import "./style.scss";
+import "./newStyle.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useRef } from "react";
 import {
@@ -20,6 +20,7 @@ function App() {
         <>
             <div className="todo-wrapper">
                 <h3 className="todo-title">Todo List</h3>
+
                 <div className="add-todo">
                     <input
                         className="todo-input"
@@ -44,7 +45,7 @@ function App() {
                         }}
                         className="add-todo-btn"
                     >
-                        新增
+                        add
                     </button>
                 </div>
                 <div className="todo-list">
@@ -101,9 +102,13 @@ function App() {
                                             })
                                         );
                                     }}
-                                    className="todo-edit"
+                                    className={
+                                        v.edit
+                                            ? "todo-edit todo-update"
+                                            : "todo-edit"
+                                    }
                                 >
-                                    {v.edit ? "更新" : "編輯"}
+                                    {v.edit ? "update" : "edit"}
                                 </button>
                                 <button
                                     onClick={() => {
@@ -111,7 +116,7 @@ function App() {
                                     }}
                                     className="todo-delete"
                                 >
-                                    刪除
+                                    delete
                                 </button>
                             </div>
                         );
